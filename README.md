@@ -5,3 +5,5 @@
 
 > Abdul Zaki Syahrul Rahmat - 502721120
 > 
+
+![Alt text](<img/TREE VLSM MODUL 5 IT20.png>)
