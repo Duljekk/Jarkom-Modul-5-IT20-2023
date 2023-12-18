@@ -60,11 +60,19 @@ subnet 192.243.14.148 netmask 255.255.255.252 {}
 
 service isc-dhcp-server start
 
+## Test Command > Revolte : nc -l -p 8080
+##                          nc -u -l -p 8080
+##                          nc -l -p 5000
+## Test Command > Client  : nc 192.243.14.150 8080
+##                          nc -u 192.243.14.150 8080
+##                          nc 192.243.14.150 5000
+
 ### Nomor 2
 iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 iptables -A INPUT -p tcp -j DROP
 iptables -A INPUT -p udp -j DROP
 
+## Test Command > Ping 3+ ke 192.243.14.150(DHCP), 192.243.14.146(DNS)
 ## Nomor 3
 iptables -I INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
 iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
