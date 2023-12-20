@@ -445,6 +445,8 @@ Penjelasan :
 ### Testing
 
 ![Untitled](img/Untitled%204.png)
+![Alt text](<img/Screenshot from 2023-12-20 15-27-59.png>)
+![Alt text](<img/Screenshot from 2023-12-20 15-47-03.png>)
 
 ## Soal 2
 
@@ -482,7 +484,13 @@ Kami diminta untuk melakukan drop semua TCP dan UDP kecuali port 8080 pada TCP.
         
         ![Untitled](img/Untitled%206.png)
         
-- Gagal → Port 8080 pada UDP ??? butuh juga ga jek
+- Gagal → Port 8080 pada UDP
+    - Client
+
+        ![Alt text](<img/Screenshot from 2023-12-20 15-32-49.png>)
+    - Revolte
+
+        ![Alt text](<img/Screenshot from 2023-12-20 15-32-54.png>)
 - Gagal → Port lain (5000 dengan TCP)
     - Client
         
@@ -525,11 +533,11 @@ Mencoba ping pada 3 client → LaubHills, TurkRegion, SchewerMountains
     
     ![Untitled](img/Untitled%2010.png)
     
-    jek ini yg ketiga lo masih gabisa apa gimana yakk takut salah 
+    ![Alt text](<img/Screenshot from 2023-12-20 15-40-42.png>)
     
 - Gagal (Client ke-4)
     
-    ![Untitled](img/Untitled%2011.png)
+    ![Alt text](<img/Screenshot from 2023-12-20 15-40-52.png>)
     
 
 ## Soal 4
