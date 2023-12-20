@@ -829,3 +829,6 @@ Tambahkan iptables berikut di semua router dan server
 
     ![Alt text](<img/Screenshot from 2023-12-20 19-09-19.png>)
     Paket yang didrop dari nomor sebelumnya berhasil masuk ke dalam LOG (recent)
+
+    ## Salam Perpisahan untuk Praktikum Terakhir 🙏
+    ![Alt text](meme.jpeg)
