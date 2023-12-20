@@ -645,11 +645,11 @@ Kami diminta untuk menambahkan rule bahwa akses pada hari Senin - Kamis pada jam
     
     - Berhasil
         
-        ![Untitled](image/Untitled%2023.png)
+        ![Alt text](<img/Screenshot from 2023-12-20 15-57-19.png>)
         
     - Gagal
         
-        ![Untitled](image/Untitled%2024.png)
+        ![Alt text](<img/Screenshot from 2023-12-20 15-57-30.png>)
         
 
 ## Soal 7
@@ -796,3 +796,36 @@ Paket setelah 20, akan otomatis ter`DROP` dan tidak terikirim.
 ## Soal 10
 
 Kami diminta untuk menambahkan logging paket yang di-drop dengan standard syslog level.
+
+### Cara Pengerjaan
+
+Tambahkan iptables berikut di semua router dan server
+
+- Router & Server
+    
+    ```bash
+    iptables -A INPUT  -j LOG --log-level debug --log-prefix 'Dropped Packet' -m limit --limit 1/second --limit-burst 10
+    ```
+    
+    Penjelasan : 
+    
+    - Membuat chain (rantai) baru dengan nama "portscan".
+
+    - **`A INPUT`**: Menambahkan aturan ke INPUT.
+
+    - **`j LOG`**: Menunjukkan bahwa perintah yang akan diambil adalah log. Ketika suatu paket di DROP, informasi tentang paket yang di DROP tersebut akan dicatat dan dimasukkan dalam log sistem.
+
+    - **`log-level debug`**: Menentukan level log yang akan digunakan. Dalam hal ini, level log adalah "debug", yang berarti log akan berjalan pada level 7.
+
+    - **`log-prefix 'Dropped Packet'`**: Menetapkan 'prefix' awalan untuk setiap entri log. Dalam hal ini, pesan log akan dimulai dengan teks "Dropped Packet".
+
+    - **`m limit --limit 1/second --limit-burst 10`**: Digunakan mengatur limit/batasan pada jumlah log yang akan dicatat.
+
+    - **`limit 1/second`**: Menetapkan limit sebanyak satu log per detik.
+
+    - **`limit-burst 10`**: Menetapkan limit dari burst, yaitu jumlah log yang dapat dilakukan dalam satu waktu sebelum tercapainya limit per detik.
+
+    ### Testing
+
+    ![Alt text](<img/Screenshot from 2023-12-20 19-09-19.png>)
+    Paket yang didrop dari nomor sebelumnya berhasil masuk ke dalam LOG (recent)
