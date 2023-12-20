@@ -8,25 +8,25 @@
 
 ## Persiapan Topologi
 
-![Untitled](img/Untitled.png)
+![Untitled](image/Untitled.png)
 
 ### Rute
 
 Hasil rute berdasarkan topologi dan kelompok subnet yang telah kami buat : 
 
-![Untitled](img/Untitled%201.png)
+![Untitled](image/Untitled%201.png)
 
 ### Tree
 
 Hasil tree berdasarkan perhitungan pembagian subnet yang telah kami buat : 
 
-![Untitled](img/Untitled%202.png)
+![Untitled](image/Untitled%202.png)
 
 ### Pembagian IP
 
 Hasil pembagian IP berdasarkan tree yang telah kami buat : 
 
-![Untitled](img/Untitled%203.png)
+![Untitled](image/Untitled%203.png)
 
 ## Konfigurasi & Routing
 
@@ -444,9 +444,11 @@ Penjelasan :
 
 ### Testing
 
-![Untitled](img/Untitled%204.png)
-![Alt text](<img/Screenshot from 2023-12-20 15-27-59.png>)
-![Alt text](<img/Screenshot from 2023-12-20 15-47-03.png>)
+![Untitled](image/Untitled%204.png)
+
+![Untitled](image/Untitled%205.png)
+
+![Untitled](image/Untitled%206.png)
 
 ## Soal 2
 
@@ -478,27 +480,29 @@ Kami diminta untuk melakukan drop semua TCP dan UDP kecuali port 8080 pada TCP.
 - Sukses → Port 8080 pada TCP
     - Client
         
-        ![Untitled](img/Untitled%205.png)
+        ![Untitled](image/Untitled%207.png)
         
     - Revolte
         
-        ![Untitled](img/Untitled%206.png)
+        ![Untitled](image/Untitled%208.png)
         
 - Gagal → Port 8080 pada UDP
     - Client
-
-        ![Alt text](<img/Screenshot from 2023-12-20 15-32-49.png>)
+        
+        ![Untitled](image/Untitled%209.png)
+        
     - Revolte
-
-        ![Alt text](<img/Screenshot from 2023-12-20 15-32-54.png>)
+        
+        ![Untitled](image/Untitled%2010.png)
+        
 - Gagal → Port lain (5000 dengan TCP)
     - Client
         
-        ![Untitled](img/Untitled%207.png)
+        ![Untitled](image/Untitled%2011.png)
         
     - Revolte
         
-        ![Untitled](img/Untitled%208.png)
+        ![Untitled](image/Untitled%2012.png)
         
 
 ## Soal 3
@@ -510,8 +514,8 @@ Kami diminta untuk membatasi DHCP dan DNS Server hanya dapat dilakukan ping oleh
 - Revolte
     
     ```bash
-    **iptables -I INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
-    iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT**
+    iptables -I INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP
+    iptables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
     ```
     
     Penjelasan : 
@@ -529,15 +533,15 @@ Mencoba ping pada 3 client → LaubHills, TurkRegion, SchewerMountains
 
 - Berhasil
     
-    ![Untitled](img/Untitled%209.png)
+    ![Untitled](image/Untitled%2013.png)
     
-    ![Untitled](img/Untitled%2010.png)
+    ![Untitled](image/Untitled%2014.png)
     
-    ![Alt text](<img/Screenshot from 2023-12-20 15-40-42.png>)
+    ![Untitled](image/Untitled%2015.png)
     
 - Gagal (Client ke-4)
     
-    ![Alt text](<img/Screenshot from 2023-12-20 15-40-52.png>)
+    ![Untitled](image/Untitled%2016.png)
     
 
 ## Soal 4
@@ -567,15 +571,15 @@ Kami diminta untuk melakukan pembatasan sehingga koneksi SSH pada Web Server han
 
 - Berhasil
     
-    ![Untitled](img/Untitled%2012.png)
+    ![Untitled](image/Untitled%2017.png)
     
-    ![Untitled](img/Untitled%2013.png)
+    ![Untitled](image/Untitled%2018.png)
     
 - Gagal → Selain GrobeForest
     
-    ![Untitled](img/Untitled%2014.png)
+    ![Untitled](image/Untitled%2019.png)
     
-    ![Untitled](img/Untitled%2015.png)
+    ![Untitled](image/Untitled%2020.png)
     
 
 ## Soal 5
@@ -605,11 +609,11 @@ Kami diminta untuk megubah akses menuju WebServer hanya diperbolehkan saat jam k
 
 - Berhasil
     
-    ![Untitled](img/Untitled%2016.png)
+    ![Untitled](image/Untitled%2021.png)
     
 - Gagal → Di luar hari kerja
     
-    ![Untitled](img/Untitled%2017.png)
+    ![Untitled](image/Untitled%2022.png)
     
 
 ## Soal 6
@@ -641,11 +645,11 @@ Kami diminta untuk menambahkan rule bahwa akses pada hari Senin - Kamis pada jam
     
     - Berhasil
         
-        ![Untitled](img/Untitled%2018.png)
+        ![Untitled](image/Untitled%2023.png)
         
     - Gagal
         
-        ![Untitled](img/Untitled%2019.png)
+        ![Untitled](image/Untitled%2024.png)
         
 
 ## Soal 7
@@ -661,22 +665,40 @@ Kami diminta agar setiap client yang mengakses Sein dengan Port 80 akan didistri
     while true; do nc -l -p 80 -c 'echo "ini stark"'; done
     while true; do nc -l -p 443 -c 'echo "ini sein"'; done
     while true; do nc -l -p 443 -c 'echo "ini stark"'; done
-    
     ```
     
 - Himmel & Heiter
     
     ```bash
     iptables -A PREROUTING -t nat -p tcp --dport 80 -d 192.243.8.2 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.243.8.2
-    iptables -A PREROUTING -t nat -p tcp --dport 80 -d 192.243.8.2 -j DNAT --to-destination 192.243.14.138
     iptables -A PREROUTING -t nat -p tcp --dport 443 -d 192.243.14.138 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination 192.243.14.138
+    ```
+    
+    Penjelasan : 
+    
+    - Menambahkan aturan ke dalam chain PREROUTING pada tabel nat.
+    - Menggunakan protokol TCP (**`p tcp`**).
+    - Menentukan port tujuan 80 (**`-dport 80`**) dan (**`-dport 443`**).
+    - Menentukan alamat tujuan 192.243.8.2  (**`d 192.243.8.2`**) dan (`d192.243.14.138`).
+    - Menggunakan modul statistic dengan mode nth untuk memilih paket berdasarkan urutan (**`m statistic --mode nth --every 2 --packet 0`**).
+    - Jika paket memenuhi kriteria aturan ini, maka aturan ini menetapkan tindakan DNAT (Destination NAT), mengarahkan paket ke alamat tujuan 192.243.8.2 (**`j DNAT --to-destination 192.243.8.2`**).
+    
+    ```bash
+    iptables -A PREROUTING -t nat -p tcp --dport 80 -d 192.243.8.2 -j DNAT --to-destination 192.243.14.138
     iptables -A PREROUTING -t nat -p tcp --dport 443 -d 192.243.14.138 -j DNAT --to-destination 192.243.8.2
     ```
     
+    Penjelasan : 
+    
+    - Menambahkan aturan ke dalam chain PREROUTING pada tabel nat.
+    - Menggunakan protokol TCP (**`p tcp`**).
+    - Menentukan port tujuan 80  (**`-dport 80`**) dan (**`-dport 443`**)
+    - Menentukan alamat tujuan 192.243.8.2 (**`d 192.243.8.2`**) dan (`d192.243.14.138`).
+    - Jika paket memenuhi kriteria aturan ini, maka aturan ini menetapkan tindakan DNAT, mengarahkan paket ke alamat tujuan 192.243.14.138 (**`j DNAT --to-destination 192.243.14.138`**).
 
 ### Testing
 
-butuh ss jekk
+![Untitled](image/Untitled%2025.png)
 
 ## Soal 8
 
@@ -699,15 +721,15 @@ Kami diminta untuk membuat Revolte dilarang keras mengakses WebServer hingga mas
 
 ### Testing
 
-![Untitled](img/Untitled%2020.png)
+![Untitled](image/Untitled%2026.png)
 
 - Gagal → DHCP Server
     
-    ![Untitled](img/Untitled%2021.png)
+    ![Untitled](image/Untitled%2027.png)
     
 - Berhasil
     
-    ??? 
+    ![Untitled](image/Untitled%2028.png)
     
 
 ## Soal 9
@@ -765,9 +787,11 @@ Kami diminta untuk membuat WebServer harus dapat secara otomatis memblokir alama
 
 ### Testing
 
-![Untitled](img/Untitled%2022.png)
+![Untitled](image/Untitled%2029.png)
 
 Paket setelah 20, akan otomatis ter`DROP` dan tidak terikirim.
+
+![Untitled](image/Untitled%2030.png)
 
 ## Soal 10
 
