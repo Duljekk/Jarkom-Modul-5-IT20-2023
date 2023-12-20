@@ -20,7 +20,7 @@ Hasil rute berdasarkan topologi dan kelompok subnet yang telah kami buat :
 
 Hasil tree berdasarkan perhitungan pembagian subnet yang telah kami buat : 
 
-![Untitled](image/Untitled%202.png)
+![Alt text](<img/TREE VLSM IT20 MODUL 5.png>)
 
 ### Pembagian IP
 
@@ -829,6 +829,3 @@ Tambahkan iptables berikut di semua router dan server
 
     ![Alt text](<img/Screenshot from 2023-12-20 19-09-19.png>)
     Paket yang didrop dari nomor sebelumnya berhasil masuk ke dalam LOG (recent)
-
-    ## Salam Perpisahan untuk Praktikum Terakhir 🙏
-    ![Alt text](img/meme.jpeg)
